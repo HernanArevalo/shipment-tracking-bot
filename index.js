@@ -3,9 +3,8 @@ const cheerio = require("cheerio");
 const TelegramBot = require("node-telegram-bot-api");
 const cron = require("node-cron");
 const fs = require("fs");
-const dotenv = require("dotenv");
 
-dotenv.config();
+require("dotenv").config();
 
 const URL = "https://webtracker.trf.com.ar/?numeroguia=16348840";
 
