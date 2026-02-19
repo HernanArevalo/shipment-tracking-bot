@@ -103,9 +103,9 @@ bot.onText(/\/check/, async (msg) => {
 });
 
 //
-// ⏱ Ejecutar cada 10 minutos
+// ⏱ Ejecutar cada 5 minutos
 //
-cron.schedule("*/10 * * * *", async () => {
+cron.schedule("*/5 * * * *", async () => {
   await checkTracking();
 });
 
