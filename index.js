@@ -6,7 +6,6 @@ const fs = require("fs");
 
 require("dotenv").config();
 
-const URL = "https://webtracker.trf.com.ar/?numeroguia=16348840";
 
 if (!process.env.TELEGRAM_TOKEN) {
   throw new Error("TELEGRAM_TOKEN no está definido en el .env");
@@ -16,7 +15,11 @@ if (!process.env.TELEGRAM_CHAT_ID) {
   throw new Error("TELEGRAM_CHAT_ID no está definido en el .env");
 }
 
+if (!process.env.TRACKING_WEBSITE_URL) {
+  throw new Error("TRACKING_WEBSITE_URL no está definido en el .env");
+}
 
+const URL = process.env.TRACKING_WEBSITE_URL || "";
 const BOT_TOKEN = process.env.TELEGRAM_TOKEN || "";
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID || "";
 
