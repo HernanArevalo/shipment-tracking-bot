@@ -31,7 +31,6 @@ async function getTrackingStatus() {
 
   const $ = cheerio.load(data);
 
-  // Seleccionamos SOLO la tabla que tiene historial
   const trackingTable = $("table.table.table-sm.table-hover").first();
 
   const lastRow = trackingTable.find("tbody tr").last();
@@ -41,9 +40,6 @@ async function getTrackingStatus() {
 
   return `📦  ${estado}\n📅  ${fecha.charAt(0).toUpperCase() + fecha.slice(1)}`;
 }
-
-
-
 
 async function checkTracking() {
   try {
@@ -81,9 +77,7 @@ async function checkTracking() {
   }
 }
 
-//
 // 🔥 COMANDO /check
-//
 bot.onText(/\/check/, async (msg) => {
   try {
     const chatId = msg.chat.id;
@@ -102,9 +96,6 @@ bot.onText(/\/check/, async (msg) => {
   }
 });
 
-//
-// ⏱ Ejecutar cada 5 minutos
-//
 cron.schedule("*/5 * * * *", async () => {
   await checkTracking();
 });
